@@ -1,18 +1,19 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int find(int u,vector<int>& parent){
+// Function for finding parent
+int findParent(int u,vector<int>& parent){         
     if( parent[u] < 0)
         return u;
     
-    parent[u] = find(parent[u] , parent);
+    parent[u] = findParent(parent[u] , parent);
     return parent[u];
     
 }
 
 bool unionByWeight(int u , int v , vector<int>& parent){
-    int pu=find(u,parent);
-    int pv=find(v,parent);
+    int pu=findParent(u,parent);
+    int pv=findParent(v,parent);
 
     if(pu == pv){
         cout<<"Cycle detected"<<endl;
