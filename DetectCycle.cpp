@@ -11,6 +11,7 @@ int findParent(int u,vector<int>& parent){
     
 }
 
+// Function for making as a single parent
 bool unionByWeight(int u , int v , vector<int>& parent){
     int pu=findParent(u,parent);
     int pv=findParent(v,parent);
